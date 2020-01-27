@@ -16,10 +16,9 @@ public class Boss
     //魔法用の関数
     public void Magic()
     {
-        //mpを消費する
-        this.mp -= 5;
-        if(this.mp >= 0)
+        if(this.mp >= 5)
         {
+            this.mp -= 5;
             Debug.Log("魔法攻撃をした。残りMPは" + this.mp + "。");
         }
         else
@@ -56,14 +55,11 @@ public class Test : MonoBehaviour {
         //Bossクラスの変数を宣言してインスタンスを代入
         Boss boss = new Boss();
 
-        //魔法攻撃を行う
-        while (true)
+        //魔法攻撃を11回行う
+        for (int i = 0; i < 11 ; i++)
         {
             boss.Magic();
-
-            if (boss.mp < 0)break;
-        }
-        
+        }       
     }	
 	// Update is called once per frame
 	void Update () {
